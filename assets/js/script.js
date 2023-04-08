@@ -37,13 +37,15 @@ $("#currentDay").text(now.format("YYYY-MMM-DD"))
   
 $(function () {
   // Get the current hour using Day.js
-  var currentHour = dayjs().format("HH")
+  var currentHour = dayjs().hour()
+  console.log(currentHour)
   //console.log(currentHour);
 
   // Loop through each time block
-  timeBlock.each(function () {
+    $('.time-block').each(function () {
     // Get the hour from the time block's id
     var blockHour = parseInt($(this).attr("id").split("-")[1]);
+    console.log(blockHour)
     //console.log(blockHour);
 
     // Add or remove classes based on the comparison between currentHour and blockHour
@@ -54,11 +56,19 @@ $(function () {
   } else {
       $(this).addClass('future').removeClass('past present');
     }
-    $(this).find("textarea").val(localStorage.getItem(blockHour));
+    // $(this).find("textarea").val(localStorage.getItem(blockHour));
   });
 });
 
-
+$('#hour-9 .description').val(localStorage.getItem('hour-9'))
+$('#hour-10 .description').val(localStorage.getItem('hour-10'))
+$('#hour-11 .description').val(localStorage.getItem('hour-11'))
+$('#hour-12 .description').val(localStorage.getItem('hour-12'))
+$('#hour-1 .description').val(localStorage.getItem('hour-1'))
+$('#hour-2 .description').val(localStorage.getItem('hour-2'))
+$('#hour-3 .description').val(localStorage.getItem('hour-3'))
+$('#hour-4 .description').val(localStorage.getItem('hour-4'))
+$('#hour-5 .description').val(localStorage.getItem('hour-5'))
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
 
